@@ -11,7 +11,7 @@ $ pomp 1234AB
     $ pomp <postcode> [--type=95]
 
   Options
-    --type, -t   Fuel type alias or ID.
+    --type, -t   Fuel type alias
 
   Fuel types
     e10, 95      Euro 95 (E10)
