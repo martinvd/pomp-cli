@@ -2,6 +2,12 @@
 
 > Find the cheapest nearby gas station by postcode (NL)
 
+## Install
+
+```
+npx github:martinvd/pomp
+```
+
 ## Usage
 
 ```
