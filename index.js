@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const c = {
   reset: "\x1b[0m",
   bold: "\x1b[1m",
