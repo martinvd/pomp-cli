@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-$ pomp 1234AB
+$ pomp --help
 
   Usage
     $ pomp <postcode> [--type=95]
