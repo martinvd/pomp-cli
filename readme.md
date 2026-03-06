@@ -22,7 +22,7 @@ $ pomp --help
   Fuel types
     e10, 95      Euro 95 (E10)
     e5, 98       Super Plus 98 (E5)
-    diesel, b7   Diesel (B7)
+    b7, diesel   Diesel (B7)
     lpg          LPG
     p-diesel     Premium Diesel
     p-95         Premium Benzine
