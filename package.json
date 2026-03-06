@@ -1,0 +1,9 @@
+{
+  "name": "pomp",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "pomp": "./index.js"
+  },
+  "private": true
+}
