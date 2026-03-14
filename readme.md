@@ -1,6 +1,6 @@
 # pomp-cli
 
-> Find the cheapest nearby gas station by postcode (NL)
+> Find the cheapest nearby gas stations by postcode (NL)
 
 ## Install
 
