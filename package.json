@@ -24,7 +24,8 @@
     "benzine",
     "diesel",
     "lpg",
-    "aardgas"
+    "aardgas",
+    "cli"
   ],
   "type": "module"
 }
