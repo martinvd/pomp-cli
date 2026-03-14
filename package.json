@@ -1,9 +1,27 @@
 {
-  "name": "pomp",
-  "main": "index.js",
-  "type": "module",
+  "name": "@martinvd/pump",
+  "version": "0.0.0",
+  "description": "Find the cheapest nearby gas station by postcode (NL)",
+  "license": "MIT",
+  "repository": "martinvd/pump",
+  "author": {
+    "name": "Martin van Driel",
+    "email": "martinvd@gmail.com",
+    "url": "https://martinvandriel.com"
+  },
   "bin": {
     "pomp": "./index.js"
   },
-  "private": true
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "pump",
+    "tanken",
+    "benzine",
+    "diesel",
+    "lpg",
+    "aardgas"
+  ],
+  "type": "module"
 }
