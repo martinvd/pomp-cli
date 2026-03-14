@@ -1,9 +1,9 @@
 {
-  "name": "@martinvd/pump",
+  "name": "pomp-cli",
   "version": "0.0.0",
   "description": "Find the cheapest nearby gas station by postcode (NL)",
   "license": "MIT",
-  "repository": "martinvd/pump",
+  "repository": "martinvd/pomp-cli",
   "author": {
     "name": "Martin van Driel",
     "email": "martinvd@gmail.com",

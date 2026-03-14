@@ -1,11 +1,11 @@
-# pomp
+# pomp-cli
 
 > Find the cheapest nearby gas station by postcode (NL)
 
 ## Install
 
 ```
-npx github:martinvd/pomp
+npx github:martinvd/pomp-cli
 ```
 
 ## Usage
