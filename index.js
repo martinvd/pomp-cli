@@ -70,20 +70,39 @@ if (!postcode) {
   showHelp();
 }
 
-console.log(`${c.dim}Looking up ${c.reset}${c.yellow}${fuelName}${c.reset}${c.dim} for ${c.reset}${c.yellow}${postcode}${c.reset}${c.dim}…${c.reset}\n`);
+console.log(`${c.dim}Looking up ${c.reset}${c.yellow}${fuelName}${c.reset}${c.dim} for ${c.reset}${c.yellow}${postcode}${c.reset}${c.dim}…${c.reset}`);
 
 const url = `https://www.independer.nl/api/autoverzekering/gasstation/getgasstations?v=61&addressInformation=${encodeURIComponent(postcode)}&fuelType=${fuelType}&range=5&sorting=1`;
 const res = await fetch(url);
 const data = await res.json();
 
-const cheapest = data.gasStations[0];
-if (!cheapest) {
+const stations = data.gasStations ?? [];
+if (stations.length === 0) {
   console.log(`${c.yellow}No gas stations found.${c.reset}`);
 } else {
-  const addr = cheapest.location.address;
+  const nameW = 28;
+  const priceW = 9;
+  const distW = 7;
+  const padR = (s, n) => String(s).padStart(n);
+  const padL = (s, n) => String(s).padEnd(n);
+
   console.log(
-    `${c.bold}Cheapest:${c.reset} ${c.yellow}${cheapest.name}${c.reset} – ${c.green}€${cheapest.fuel.fuelPrice.toFixed(3)}/L${c.reset}\n` +
-      `${c.dim}  ${addr.streetName} ${addr.houseNumber}, ${addr.city}${c.reset}\n` +
-      `${c.dim}  ${cheapest.distance.toFixed(1)} km${c.reset}`,
+    `\n  ${c.bold}${padR("#", 3)}  ${padL("Station", nameW)}  ${padR("Price", priceW)}  ${padR("Dist", distW)}  Address${c.reset}`,
   );
+  console.log(`  ${c.dim}${"─".repeat(3)}  ${"─".repeat(nameW)}  ${"─".repeat(priceW)}  ${"─".repeat(distW)}  ${"─".repeat(36)}${c.reset}`);
+
+  stations.forEach((s, i) => {
+    const addr = s.location.address;
+    const shortAddr = `${addr.streetName} ${addr.houseNumber}, ${addr.city}`;
+    const price = `€${s.fuel.fuelPrice.toFixed(3)}`;
+    const dist = `${s.distance.toFixed(1)} km`;
+    const name = (s.name || "").slice(0, nameW);
+    const rank = i + 1;
+    const rankStr = rank === 1 ? `${c.green}${padR(rank, 3)}${c.reset}` : `${c.dim}${padR(rank, 3)}${c.reset}`;
+    const pricePadded = padR(price, priceW);
+    const priceStr = rank === 1 ? `${c.green}${pricePadded}${c.reset}` : pricePadded;
+    console.log(
+      `  ${rankStr}  ${c.yellow}${padL(name, nameW)}${c.reset}  ${priceStr}  ${c.dim}${padR(dist, distW)}${c.reset}  ${c.dim}${shortAddr}${c.reset}`,
+    );
+  });
 }
