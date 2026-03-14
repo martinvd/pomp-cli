@@ -5,7 +5,7 @@
 ## Install
 
 ```
-npx github:martinvd/pomp-cli
+npm install --global pomp-cli
 ```
 
 ## Usage
