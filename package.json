@@ -12,6 +12,9 @@
   "bin": {
     "pomp": "./index.js"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
     "index.js"
   ],
