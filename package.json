@@ -10,13 +10,13 @@
     "url": "https://martinvandriel.com"
   },
   "bin": {
-    "pomp": "./index.js"
+    "pomp": "./cli.js"
   },
   "engines": {
     "node": ">=18"
   },
   "files": [
-    "index.js"
+    "cli.js"
   ],
   "keywords": [
     "pump",
