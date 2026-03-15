@@ -70,7 +70,9 @@ if (!postcode) {
   showHelp();
 }
 
-console.log(`${c.dim}Looking up ${c.reset}${c.yellow}${fuelName}${c.reset}${c.dim} for ${c.reset}${c.yellow}${postcode}${c.reset}${c.dim}…${c.reset}`);
+console.log(
+  `${c.dim}Looking up ${c.reset}${c.yellow}${fuelName}${c.reset}${c.dim} for ${c.reset}${c.yellow}${postcode}${c.reset}${c.dim}…${c.reset}`,
+);
 
 const url = `https://www.independer.nl/api/autoverzekering/gasstation/getgasstations?v=61&addressInformation=${encodeURIComponent(postcode)}&fuelType=${fuelType}&range=5&sorting=1`;
 const res = await fetch(url);
@@ -89,7 +91,9 @@ if (stations.length === 0) {
   console.log(
     `\n  ${c.bold}${padR("#", 3)}  ${padL("Station", nameW)}  ${padR("Price", priceW)}  ${padR("Dist", distW)}  Address${c.reset}`,
   );
-  console.log(`  ${c.dim}${"─".repeat(3)}  ${"─".repeat(nameW)}  ${"─".repeat(priceW)}  ${"─".repeat(distW)}  ${"─".repeat(36)}${c.reset}`);
+  console.log(
+    `  ${c.dim}${"─".repeat(3)}  ${"─".repeat(nameW)}  ${"─".repeat(priceW)}  ${"─".repeat(distW)}  ${"─".repeat(36)}${c.reset}`,
+  );
 
   stations.forEach((s, i) => {
     const addr = s.location.address;
@@ -98,9 +102,13 @@ if (stations.length === 0) {
     const dist = `${s.distance.toFixed(1)} km`;
     const name = (s.name || "").slice(0, nameW);
     const rank = i + 1;
-    const rankStr = rank === 1 ? `${c.green}${padR(rank, 3)}${c.reset}` : `${c.dim}${padR(rank, 3)}${c.reset}`;
+    const rankStr =
+      rank === 1
+        ? `${c.green}${padR(rank, 3)}${c.reset}`
+        : `${c.dim}${padR(rank, 3)}${c.reset}`;
     const pricePadded = padR(price, priceW);
-    const priceStr = rank === 1 ? `${c.green}${pricePadded}${c.reset}` : pricePadded;
+    const priceStr =
+      rank === 1 ? `${c.green}${pricePadded}${c.reset}` : pricePadded;
     console.log(
       `  ${rankStr}  ${c.yellow}${padL(name, nameW)}${c.reset}  ${priceStr}  ${c.dim}${padR(dist, distW)}${c.reset}  ${c.dim}${shortAddr}${c.reset}`,
     );
