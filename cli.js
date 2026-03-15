@@ -5,7 +5,6 @@ const c = {
   dim: "\x1b[2m",
   green: "\x1b[32m",
   yellow: "\x1b[33m",
-  red: "\x1b[31m",
 };
 
 const fuels = [
