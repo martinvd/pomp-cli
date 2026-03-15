@@ -22,32 +22,31 @@ const fuelByAlias = Object.fromEntries(
   fuels.flatMap((f) => f.aliases.map((a) => [a, f])),
 );
 
-const help = `
-  Usage
-    $ pomp <postcode> [--type=95]
-
-  Options
-    --type, -t   Fuel type alias
-
-  Fuel types
-    e10, 95      Euro 95 (E10)
-    e5, 98       Super Plus 98 (E5)
-    diesel, b7   Diesel (B7)
-    lpg          LPG
-    p-diesel     Premium Diesel
-    p-95         Premium Benzine
-    gas          Aardgas
-    bio          Biodiesel
-
-  Examples
-    $ pomp 1234AB
-    # Euro 95 (default)
-
-    $ pomp 1234AB -t diesel
-    # Diesel (B7)
-`;
-
 function showHelp() {
+  const help = `
+    Usage
+      $ pomp <postcode> [--type=95]
+
+    Options
+      --type, -t   Fuel type alias
+
+    Fuel types
+      e10, 95      Euro 95 (E10)
+      e5, 98       Super Plus 98 (E5)
+      diesel, b7   Diesel (B7)
+      lpg          LPG
+      p-diesel     Premium Diesel
+      p-95         Premium Benzine
+      gas          Aardgas
+      bio          Biodiesel
+
+    Examples
+      $ pomp 1234AB
+      # Euro 95 (default)
+
+      $ pomp 1234AB -t diesel
+      # Diesel (B7)
+  `;
   console.log(help.trim());
   process.exit(0);
 }
