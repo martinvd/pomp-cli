@@ -1,6 +1,6 @@
 {
   "name": "pomp-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Find the cheapest nearby gas stations by postcode (NL)",
   "license": "MIT",
   "repository": "martinvd/pomp-cli",
