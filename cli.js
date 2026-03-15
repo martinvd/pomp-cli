@@ -51,6 +51,23 @@ function showHelp() {
   process.exit(0);
 }
 
+async function fetchData(postcode, fuelType) {
+  try {
+    const url = `https://www.independer.nl/api/autoverzekering/gasstation/getgasstations?v=61&addressInformation=${encodeURIComponent(postcode)}&fuelType=${fuelType}&range=5&sorting=1`;
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} ${res.statusText}`);
+    }
+
+    return await res.json();
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error(`Error: ${message}${c.reset}`);
+    process.exit(1);
+  }
+}
+
 const args = process.argv.slice(2);
 if (args.includes("--help") || args.includes("-h")) {
   showHelp();
@@ -72,9 +89,7 @@ console.log(
   `${c.dim}Looking up ${c.reset}${c.yellow}${fuelName}${c.reset}${c.dim} for ${c.reset}${c.yellow}${postcode}${c.reset}${c.dim}…${c.reset}`,
 );
 
-const url = `https://www.independer.nl/api/autoverzekering/gasstation/getgasstations?v=61&addressInformation=${encodeURIComponent(postcode)}&fuelType=${fuelType}&range=5&sorting=1`;
-const res = await fetch(url);
-const data = await res.json();
+const data = await fetchData(postcode, fuelType);
 
 const stations = data.gasStations ?? [];
 if (stations.length === 0) {
