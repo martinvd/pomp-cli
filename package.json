@@ -10,7 +10,8 @@
     "url": "https://martinvandriel.com"
   },
   "bin": {
-    "pomp": "./cli.js"
+    "pomp": "./cli.js",
+    "pomp-cli": "./cli.js"
   },
   "engines": {
     "node": ">=18"
